@@ -5,6 +5,7 @@ import com.ideil.bagistosdk.api.BagistoRetrofitManager
 import com.ideil.bagistosdk.entity.category.BagistoCategory
 import com.ideil.bagistosdk.entity.response.BagistoGetProductsResponse
 import com.ideil.bagistosdk.entity.response.BagistoGetCategoriesResponse
+import com.ideil.bagistosdk.entity.response.BagistoGetProductResponse
 import retrofit2.Retrofit
 
 /**
@@ -46,6 +47,10 @@ class BagistoApi {
      * */
     suspend fun getProducts(categoryId: Long, limit: Int, page: Int): BagistoGetProductsResponse {
         return apiService.getProducts(categoryId, limit, page)
+    }
+
+    suspend fun getProduct(productId: Long): BagistoGetProductResponse {
+        return apiService.getProduct(productId)
     }
 
 

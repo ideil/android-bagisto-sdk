@@ -3,6 +3,7 @@ package com.ideil.bagistosdk.api
 import com.ideil.bagistosdk.entity.category.BagistoCategory
 import com.ideil.bagistosdk.entity.response.BagistoGetProductsResponse
 import com.ideil.bagistosdk.entity.response.BagistoGetCategoriesResponse
+import com.ideil.bagistosdk.entity.response.BagistoGetProductResponse
 import retrofit2.http.GET
 import retrofit2.http.Path
 import retrofit2.http.Query
@@ -11,6 +12,7 @@ private const val URL_CATEGORIES = "api/categories"
 private const val URL_CATEGORY_BY_ID = "api/categories/{id}"
 private const val URL_CATEGORY_DESCENDANT = "api/descendant-categories"
 private const val URL_PRODUCTS = "api/products"
+private const val URL_PRODUCT = "api/products/{product_id}"
 
 /**
  * Base api service for retrofit queries
@@ -48,5 +50,11 @@ interface BagistoApiService {
         @Query("limit") limit: Int,
         @Query("page") page: Int
     ): BagistoGetProductsResponse
+
+    /**
+     * Get product
+     * */
+    @GET(URL_PRODUCT)
+    suspend fun getProduct(@Path("product_id") productId: Long): BagistoGetProductResponse
 
 }
