@@ -10,9 +10,9 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:name=".App"
+        android:name="com.ideil.basket_test.App"
         android:theme="@style/Theme.Basket">
-        <activity android:name=".MainActivity">
+        <activity android:name="com.ideil.basket_test.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

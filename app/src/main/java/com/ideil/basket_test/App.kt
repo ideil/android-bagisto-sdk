@@ -1,4 +1,4 @@
-package com.ideil.basket
+package com.ideil.basket_test
 
 import android.app.Application
 import com.ideil.basket_api.BasketConfig

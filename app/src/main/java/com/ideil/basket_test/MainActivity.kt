@@ -1,8 +1,9 @@
-package com.ideil.basket
+package com.ideil.basket_test
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import com.ideil.basket.R
 import com.ideil.basket_api.BasketApi
 import kotlinx.coroutines.runBlocking
 
