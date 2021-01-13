@@ -2,7 +2,7 @@ package com.ideil.bagistosdk
 
 import com.ideil.bagistosdk.api.BasketApiService
 import com.ideil.bagistosdk.api.BagistoRetrofitManager
-import com.ideil.bagistosdk.entity.category.BagistoCategoryApi
+import com.ideil.bagistosdk.entity.category.BagistoCategory
 import com.ideil.bagistosdk.entity.response.BagistoGetProductsResponse
 import com.ideil.bagistosdk.entity.response.BagistoGetCategoriesResponse
 import retrofit2.Retrofit
@@ -18,7 +18,7 @@ class BagistoApi {
      * @param categoryId - Category id
      * @return [Result] of category list
      * */
-    suspend fun getCategory(categoryId: Long): Result<List<BagistoCategoryApi>> {
+    suspend fun getCategory(categoryId: Long): Result<List<BagistoCategory>> {
         return kotlin.runCatching { apiService.getCategoryById(categoryId.toString()) }
     }
 

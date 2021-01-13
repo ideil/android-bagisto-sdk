@@ -8,7 +8,7 @@ import kotlinx.android.parcel.Parcelize
  * Data class for represent category from api
  * */
 @Parcelize
-data class BagistoCategoryApi(
+data class BagistoCategory(
     @SerializedName("id")
     val id: Int?,
     @SerializedName("code")

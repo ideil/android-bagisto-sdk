@@ -9,7 +9,7 @@ import android.os.Parcelable
  * Data class for represent product from api
  * */
 @Parcelize
-data class BagistoProductApi(
+data class BagistoProduct(
     @SerializedName("id")
     val id: Int?,
     @SerializedName("type")

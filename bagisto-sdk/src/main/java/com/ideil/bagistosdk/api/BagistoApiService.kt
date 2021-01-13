@@ -1,6 +1,6 @@
 package com.ideil.bagistosdk.api
 
-import com.ideil.bagistosdk.entity.category.BagistoCategoryApi
+import com.ideil.bagistosdk.entity.category.BagistoCategory
 import com.ideil.bagistosdk.entity.response.BagistoGetProductsResponse
 import com.ideil.bagistosdk.entity.response.BagistoGetCategoriesResponse
 import retrofit2.http.GET
@@ -31,13 +31,13 @@ interface BasketApiService {
      * Get category by id
      * */
     @GET(URL_CATEGORY_BY_ID)
-    suspend fun getCategoryById(@Path("id") id: String): List<BagistoCategoryApi>
+    suspend fun getCategoryById(@Path("id") id: String): List<BagistoCategory>
 
     /**
      * Get descendant categories
      * */
     @GET(URL_CATEGORY_DESCENDANT)
-    suspend fun getCategoriesDescendant(@Query("parent_id") parentId: String): List<BagistoCategoryApi>
+    suspend fun getCategoriesDescendant(@Query("parent_id") parentId: String): List<BagistoCategory>
 
     /**
      * Get products
