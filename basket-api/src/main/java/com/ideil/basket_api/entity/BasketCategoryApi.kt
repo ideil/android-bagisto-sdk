@@ -4,6 +4,9 @@ import android.os.Parcelable
 import com.google.gson.annotations.SerializedName
 import kotlinx.android.parcel.Parcelize
 
+/**
+ * Data class for represent category from api
+ * */
 @Parcelize
 data class BasketCategoryApi(
     @SerializedName("id")

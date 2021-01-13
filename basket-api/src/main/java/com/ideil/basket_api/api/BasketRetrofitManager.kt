@@ -5,20 +5,25 @@ import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import java.lang.RuntimeException
 
-class BasketRetrofitManager {
+/**
+ * Basket retrofit manager
+ * */
+object BasketRetrofitManager {
 
-    companion object {
+    /**
+     * Get configured retrofit instance
+     *
+     * @return [Retrofit]
+     * */
+    fun getRetrofit(): Retrofit {
+        if (BasketConfig.baseUrl.isEmpty())
+            throw RuntimeException("Specify BasketConfig.baseUrl")
 
-        fun getRetrofit(): Retrofit {
-            if (BasketConfig.baseUrl.isEmpty())
-                throw RuntimeException("Specify BasketConfig.baseUrl")
-
-            return Retrofit.Builder()
-                .baseUrl(BasketConfig.baseUrl)
-                .client(OkHttpProvider.createOkHttpClient())
-                .addConverterFactory(GsonConverterFactory.create())
-                .build()
-        }
-
+        return Retrofit.Builder()
+            .baseUrl(BasketConfig.baseUrl)
+            .client(OkHttpProvider.createOkHttpClient())
+            .addConverterFactory(GsonConverterFactory.create())
+            .build()
     }
+
 }

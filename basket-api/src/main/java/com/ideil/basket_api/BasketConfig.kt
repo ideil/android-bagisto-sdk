@@ -1,21 +1,24 @@
 package com.ideil.basket_api
 
-class BasketConfig {
-    companion object {
+/**
+ * Basket config
+ * */
+object BasketConfig {
 
-        /**
-         * Base api url (host)
-         * */
-        internal var baseUrl: String = ""
+    /**
+     * Base api url (host)
+     * */
+    internal var baseUrl: String = ""
 
 
-        /**
-         * Configure config
-         * */
-        fun configure(baseUrl: String) {
-            this.baseUrl = baseUrl
-            BasketApi.setupRetrofit()
-        }
-
+    /**
+     * Configure config
+     *
+     * @param baseUrl Api server host
+     * */
+    fun configure(baseUrl: String) {
+        this.baseUrl = baseUrl
+        BasketApi.setupRetrofit()
     }
+
 }

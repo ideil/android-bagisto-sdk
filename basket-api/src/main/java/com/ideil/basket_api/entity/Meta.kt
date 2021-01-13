@@ -1,10 +1,13 @@
-package com.ideil.basket_api.entity.response
+package com.ideil.basket_api.entity
 
 
 import com.google.gson.annotations.SerializedName
 import kotlinx.android.parcel.Parcelize
 import android.os.Parcelable
 
+/**
+ * Data class for represent meta info from api
+ * */
 @Parcelize
 data class Meta(
     @SerializedName("current_page")

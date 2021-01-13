@@ -5,6 +5,9 @@ import com.google.gson.annotations.SerializedName
 import kotlinx.android.parcel.Parcelize
 import android.os.Parcelable
 
+/**
+ * Data class for represent links info from api
+ * */
 @Parcelize
 data class Links(
     @SerializedName("first")

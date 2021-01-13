@@ -6,6 +6,7 @@ import kotlinx.android.parcel.Parcelize
 import android.os.Parcelable
 import com.ideil.basket_api.entity.BasketCategoryApi
 import com.ideil.basket_api.entity.Links
+import com.ideil.basket_api.entity.Meta
 
 @Parcelize
 data class GetCategoriesResponse(

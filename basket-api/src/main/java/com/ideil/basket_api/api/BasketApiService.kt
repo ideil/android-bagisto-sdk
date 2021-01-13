@@ -11,7 +11,9 @@ private const val URL_CATEGORY_BY_ID = "api/categories/{id}"
 private const val URL_CATEGORY_DESCENDANT = "api/descendant-categories"
 private const val URL_PRODUCTS = "api/products"
 
-
+/**
+ * Base api service for retrofit queries
+ * */
 interface BasketApiService {
 
     /**

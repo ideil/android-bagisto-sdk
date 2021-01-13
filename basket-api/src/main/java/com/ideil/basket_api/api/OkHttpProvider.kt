@@ -6,36 +6,46 @@ import okhttp3.Request
 import okhttp3.logging.HttpLoggingInterceptor
 import java.util.concurrent.TimeUnit
 
-class OkHttpProvider {
-    companion object {
+/**
+ * OkHttp provider for creating clients
+ * */
+object OkHttpProvider {
 
-        fun createOkHttpClient(): OkHttpClient {
+    /**
+     * Creates OkHttp client
+     *
+     * @return [OkHttpClient]
+     * */
+    fun createOkHttpClient(): OkHttpClient {
 
-            val httpLoggingInterceptor = HttpLoggingInterceptor()
-            httpLoggingInterceptor.level = HttpLoggingInterceptor.Level.BODY
+        val httpLoggingInterceptor = HttpLoggingInterceptor()
+        httpLoggingInterceptor.level = HttpLoggingInterceptor.Level.BODY
 
-            val builder = OkHttpClient.Builder()
-                .addInterceptor(addQueryParameterInterceptor())
-                .connectTimeout(40L, TimeUnit.SECONDS)
-                .readTimeout(40L, TimeUnit.SECONDS)
-                .writeTimeout(40L, TimeUnit.SECONDS)
+        val builder = OkHttpClient.Builder()
+            .addInterceptor(addQueryParameterInterceptor())
+            .connectTimeout(40L, TimeUnit.SECONDS)
+            .readTimeout(40L, TimeUnit.SECONDS)
+            .writeTimeout(40L, TimeUnit.SECONDS)
 
-            builder.addInterceptor(httpLoggingInterceptor)
+        builder.addInterceptor(httpLoggingInterceptor)
 
-            return builder.build()
-        }
+        return builder.build()
+    }
 
-        private fun addQueryParameterInterceptor(): Interceptor {
-            return Interceptor { chain ->
-                val originalRequest = chain.request()
-                val request: Request
-                val modifiedUrl = originalRequest.url.newBuilder()
-                    //.addQueryParameter("udid", "d2807c895f0348a180148c9dfa6f2feeac0781b5")
-                    //.addQueryParameter("deviceModel", AppUtils.getMobileModel())
-                    .build()
-                request = originalRequest.newBuilder().url(modifiedUrl).build()
-                chain.proceed(request)
-            }
+    /**
+     * Add query parameter interceptor
+     *
+     * @return [Interceptor]
+     * */
+    private fun addQueryParameterInterceptor(): Interceptor {
+        return Interceptor { chain ->
+            val originalRequest = chain.request()
+            val request: Request
+            val modifiedUrl = originalRequest.url.newBuilder()
+                .build()
+            request = originalRequest.newBuilder().url(modifiedUrl).build()
+            chain.proceed(request)
         }
     }
+
 }
