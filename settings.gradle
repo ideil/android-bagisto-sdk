@@ -1,3 +1,3 @@
-include ':basket-api'
+include ':bagisto-sdk'
 include ':app'
-rootProject.name = "basket-api"
+rootProject.name = "android-bagisto-sdk"
