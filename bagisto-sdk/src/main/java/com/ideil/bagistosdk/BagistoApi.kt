@@ -1,6 +1,6 @@
 package com.ideil.bagistosdk
 
-import com.ideil.bagistosdk.api.BasketApiService
+import com.ideil.bagistosdk.api.BagistoApiService
 import com.ideil.bagistosdk.api.BagistoRetrofitManager
 import com.ideil.bagistosdk.entity.category.BagistoCategory
 import com.ideil.bagistosdk.entity.response.BagistoGetProductsResponse
@@ -18,8 +18,8 @@ class BagistoApi {
      * @param categoryId - Category id
      * @return [Result] of category list
      * */
-    suspend fun getCategory(categoryId: Long): Result<List<BagistoCategory>> {
-        return kotlin.runCatching { apiService.getCategoryById(categoryId.toString()) }
+    suspend fun getCategory(categoryId: Long): List<BagistoCategory> {
+        return apiService.getCategoryById(categoryId.toString())
     }
 
     /**
@@ -31,10 +31,8 @@ class BagistoApi {
      *
      * @return [Result] of categories
      * */
-    suspend fun getCategories(limit: Int, page: Int, pagination: Int): Result<BagistoGetCategoriesResponse> {
-        return kotlin.runCatching {
-            apiService.getCategories(limit.toString(), page.toString(), pagination.toString())
-        }
+    suspend fun getCategories(limit: Int, page: Int, pagination: Int): BagistoGetCategoriesResponse {
+        return apiService.getCategories(limit.toString(), page.toString(), pagination.toString())
     }
 
     /**
@@ -46,21 +44,21 @@ class BagistoApi {
      *
      * @return [Result] of prodcts list
      * */
-    suspend fun getProducts(categoryId: Long, limit: Int, page: Int): Result<BagistoGetProductsResponse> {
-        return kotlin.runCatching { apiService.getProducts(categoryId, limit, page) }
+    suspend fun getProducts(categoryId: Long, limit: Int, page: Int): BagistoGetProductsResponse {
+        return apiService.getProducts(categoryId, limit, page)
     }
 
 
     companion object {
         lateinit var retrofit: Retrofit
-        lateinit var apiService: BasketApiService
+        lateinit var apiService: BagistoApiService
 
         /**
          * Setup retrofit and services
          * */
         internal fun setupRetrofit() {
             retrofit = BagistoRetrofitManager.getRetrofit()
-            apiService = retrofit.create(BasketApiService::class.java)
+            apiService = retrofit.create(BagistoApiService::class.java)
         }
     }
 

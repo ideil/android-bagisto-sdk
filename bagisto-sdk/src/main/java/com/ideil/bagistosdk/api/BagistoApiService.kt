@@ -15,7 +15,7 @@ private const val URL_PRODUCTS = "api/products"
 /**
  * Base api service for retrofit queries
  * */
-interface BasketApiService {
+interface BagistoApiService {
 
     /**
      * Get all categories
