@@ -1,6 +1,7 @@
 package com.ideil.basket_api.api
 
-import com.ideil.basket_api.entity.BasketCategoryApi
+import com.ideil.basket_api.entity.category.BasketCategoryApi
+import com.ideil.basket_api.entity.product.GetProductsResponse
 import com.ideil.basket_api.entity.response.GetCategoriesResponse
 import retrofit2.http.GET
 import retrofit2.http.Path
@@ -46,6 +47,6 @@ interface BasketApiService {
         @Query("category_id") categoryId: Long,
         @Query("limit") limit: Int,
         @Query("page") page: Int
-    ): Any
+    ): GetProductsResponse
 
 }

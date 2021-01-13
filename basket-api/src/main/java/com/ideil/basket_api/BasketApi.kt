@@ -2,7 +2,8 @@ package com.ideil.basket_api
 
 import com.ideil.basket_api.api.BasketApiService
 import com.ideil.basket_api.api.BasketRetrofitManager
-import com.ideil.basket_api.entity.BasketCategoryApi
+import com.ideil.basket_api.entity.category.BasketCategoryApi
+import com.ideil.basket_api.entity.product.GetProductsResponse
 import com.ideil.basket_api.entity.response.GetCategoriesResponse
 import retrofit2.Retrofit
 
@@ -45,7 +46,7 @@ class BasketApi {
      *
      * @return [Result] of prodcts list
      * */
-    suspend fun getProducts(categoryId: Long, limit: Int, page: Int): Result<Any> {
+    suspend fun getProducts(categoryId: Long, limit: Int, page: Int): Result<GetProductsResponse> {
         return kotlin.runCatching { apiService.getProducts(categoryId, limit, page) }
     }
 

@@ -1,4 +1,4 @@
-package com.ideil.basket_api.entity
+package com.ideil.basket_api.entity.category
 
 import android.os.Parcelable
 import com.google.gson.annotations.SerializedName
