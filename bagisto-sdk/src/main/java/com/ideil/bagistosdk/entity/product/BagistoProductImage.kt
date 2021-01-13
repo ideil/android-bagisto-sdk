@@ -11,7 +11,7 @@ import android.os.Parcelable
 @Parcelize
 data class BagistoProductImage(
     @SerializedName("id")
-    val id: Int?,
+    val id: Long?,
     @SerializedName("path")
     val path: String?,
     @SerializedName("url")

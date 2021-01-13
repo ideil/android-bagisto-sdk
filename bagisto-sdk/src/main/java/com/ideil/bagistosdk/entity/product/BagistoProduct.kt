@@ -11,7 +11,7 @@ import android.os.Parcelable
 @Parcelize
 data class BagistoProduct(
     @SerializedName("id")
-    val id: Int?,
+    val id: Long?,
     @SerializedName("type")
     val type: String?,
     @SerializedName("name")

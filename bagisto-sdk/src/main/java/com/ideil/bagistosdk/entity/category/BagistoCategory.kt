@@ -10,7 +10,7 @@ import kotlinx.android.parcel.Parcelize
 @Parcelize
 data class BagistoCategory(
     @SerializedName("id")
-    val id: Int?,
+    val id: Long?,
     @SerializedName("code")
     val code: Int?,
     @SerializedName("name")
