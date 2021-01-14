@@ -3,6 +3,7 @@ package com.ideil.bagistosdk.api
 import com.ideil.bagistosdk.entity.category.BagistoCategory
 import com.ideil.bagistosdk.entity.response.BagistoGetProductsResponse
 import com.ideil.bagistosdk.entity.response.BagistoGetCategoriesResponse
+import com.ideil.bagistosdk.entity.response.BagistoGetCategoryResponse
 import com.ideil.bagistosdk.entity.response.BagistoGetProductResponse
 import retrofit2.http.GET
 import retrofit2.http.Path
@@ -33,7 +34,7 @@ interface BagistoApiService {
      * Get category by id
      * */
     @GET(URL_CATEGORY_BY_ID)
-    suspend fun getCategoryById(@Path("id") id: String): List<BagistoCategory>
+    suspend fun getCategoryById(@Path("id") id: String): BagistoGetCategoryResponse
 
     /**
      * Get descendant categories

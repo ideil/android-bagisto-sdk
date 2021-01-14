@@ -16,7 +16,7 @@ class MainActivity : AppCompatActivity() {
 
     private fun actions() {
         runBlocking {
-            kotlin.runCatching { BagistoApi().getProduct(53) }.process(
+            kotlin.runCatching { BagistoApi().getCategory(15) }.process(
                 {
                     Log.d("MainActivity", it.toString())
                 },
